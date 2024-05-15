@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: pzData
+  datasource:
+    url: jdbc:hsqldb:file:hsqldb/db;readonly=false;sql.syntax_mys=true
+    username: sa
+    password:
+#  datasource:
+#    url: jdbc:derby:directory:mydbdirectory;create=true
+#    username: derby
+#    password: password
+
+application:
+  graduationDefaults:
+    attendMinimum: 17
+    makeupMaximum: 7
+    absentMaximum: 3
+    perfectAttendance: 20
+    diligent: 20
+  main:
+#    fileName: classpath:/DATA/112-2-001.xlsx
+    fileName: "C:/Users/Foveo/Desktop/精舍資料/DATA/112-2-001.xlsx"
+    sheetIndex: 0
+  attendRecord:
+    fileName: "C:/Users/Foveo/Desktop/精舍資料/DATA/普中_日研三_上課紀錄.xlsx"
+    sheetIndex: 0
+  outputFolder: "C:/Users/Foveo/Desktop/精舍資料/Output"

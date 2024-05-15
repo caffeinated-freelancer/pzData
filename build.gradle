@@ -1,0 +1,57 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.5'
+	id 'io.spring.dependency-management' version '1.1.4'
+	id 'org.graalvm.buildtools.native' version '0.9.28'
+}
+
+group = 'ncu.mac'
+version = '0.0.1'
+
+java {
+	sourceCompatibility = '21'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+	// https://mvnrepository.com/artifact/org.apache.poi/poi
+	implementation 'org.apache.poi:poi:5.2.5'
+	// https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
+	implementation 'org.apache.poi:poi-ooxml:5.2.5'
+	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
+	implementation 'com.fasterxml.jackson.core:jackson-core:2.17.0'
+	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations
+	implementation 'com.fasterxml.jackson.core:jackson-annotations:2.17.0'
+	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.0'
+	// https://mvnrepository.com/artifact/com.google.code.gson/gson
+	implementation 'com.google.code.gson:gson:2.10.1'
+	// https://mvnrepository.com/artifact/com.google.zxing/core
+	implementation 'com.google.zxing:core:3.5.3'
+	// https://mvnrepository.com/artifact/com.google.zxing/javase
+	implementation 'com.google.zxing:javase:3.5.3'
+	// https://mvnrepository.com/artifact/jakarta.xml.bind/jakarta.xml.bind-api
+	implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.2'
+	// https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-yaml
+	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.17.1'
+
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'org.apache.derby:derby'
+	runtimeOnly 'org.apache.derby:derbytools'
+	runtimeOnly 'org.hsqldb:hsqldb'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
