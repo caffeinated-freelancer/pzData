@@ -26,6 +26,7 @@ public class MemberModel extends HaveKeyValues.HaveKeyValuesImpl implements Have
     private String homePhoneNumber;
     @KeyName("介紹人&備註")
     private String memo;
+    private GraduationInfoModel graduationInfoModel;
 
 
 //    private final SequencedMap<String, String> sequencedMap = new LinkedHashMap<>();
@@ -136,5 +137,13 @@ public class MemberModel extends HaveKeyValues.HaveKeyValuesImpl implements Have
 
     public void setMemo(String memo) {
         this.memo = memo;
+    }
+
+    public GraduationInfoModel getGraduationInfoModel() {
+        return graduationInfoModel;
+    }
+
+    public void setGraduationInfoModel(GraduationInfoModel graduationInfoModel) {
+        this.graduationInfoModel = graduationInfoModel;
     }
 }

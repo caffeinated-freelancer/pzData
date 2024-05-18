@@ -1,6 +1,7 @@
 package ncu.mac.commons.helpers;
 
 import ncu.mac.commons.annotations.KeyName;
+import ncu.mac.commons.constants.JavaConstants;
 import ncu.mac.commons.models.HaveKeyValues;
 import ncu.mac.commons.utils.StackTraceUtil;
 import ncu.mac.pzdata.models.MemberModel;
@@ -36,6 +37,7 @@ public class ExcelKeyModelHelper {
         private final List<String> headerKeyNames;
         private final Map<String, Field> fieldMap;
 
+        @SuppressWarnings(JavaConstants.UNCHECKED)
         public ExcelImportHelpImp(T tObject) {
             this.clazz = (Class<T>) tObject.getClass();
 

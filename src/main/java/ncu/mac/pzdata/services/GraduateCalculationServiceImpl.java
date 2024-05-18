@@ -5,6 +5,7 @@ import ncu.mac.commons.helpers.ExcelReaderHelper;
 import ncu.mac.commons.utils.ConversionUtil;
 import ncu.mac.commons.utils.StackTraceUtil;
 import ncu.mac.pz.helpers.PuzhongGeneralHelper;
+import ncu.mac.pzdata.models.GraduationInfoModel;
 import ncu.mac.pzdata.properties.ApplicationProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -237,6 +238,12 @@ public class GraduateCalculationServiceImpl implements GraduateCalculationServic
                                 dataGrid.putValue(r, dateColumnBegin + j++, graduateResult.perfect ? "全勤" : "");
                                 dataGrid.putValue(r, dateColumnBegin + j++, graduateResult.diligent ? "勤學" : "");
                                 dataGrid.putValue(r, dateColumnBegin + j, graduateResult.graduate ? "V" : "");
+
+                                memberModel.setGraduationInfoModel(new GraduationInfoModel(
+                                        graduateResult.graduate,
+                                        counters.personalLeave,
+                                        counters.makeUp
+                                ));
                             }
                         }
                     }

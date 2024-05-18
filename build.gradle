@@ -2,7 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.2.5'
 	id 'io.spring.dependency-management' version '1.1.4'
-	id 'org.graalvm.buildtools.native' version '0.9.28'
+//	id 'org.graalvm.buildtools.native' version '0.9.28'
 }
 
 group = 'ncu.mac'
@@ -43,11 +43,16 @@ dependencies {
 	// https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-yaml
 	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.17.1'
 
-	runtimeOnly 'com.mysql:mysql-connector-j'
+
+	// https://mvnrepository.com/artifact/org.projectlombok/lombok
+//	compileOnly 'org.projectlombok:lombok:1.18.32'
+
+
+//	runtimeOnly 'com.mysql:mysql-connector-j'
 	runtimeOnly 'com.h2database:h2'
-	runtimeOnly 'org.apache.derby:derby'
-	runtimeOnly 'org.apache.derby:derbytools'
-	runtimeOnly 'org.hsqldb:hsqldb'
+//	runtimeOnly 'org.apache.derby:derby'
+//	runtimeOnly 'org.apache.derby:derbytools'
+//	runtimeOnly 'org.hsqldb:hsqldb'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }

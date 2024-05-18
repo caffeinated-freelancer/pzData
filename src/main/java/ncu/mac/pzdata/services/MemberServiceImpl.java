@@ -7,16 +7,13 @@ import ncu.mac.pzdata.properties.ApplicationProperties;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class MemberServiceImpl implements MemberService {
     private final ExcelImportService excelImportService;
     private final ApplicationProperties properties;
-    private final Map<String,MemberModel> membersByStudentId = new HashMap<>();
+    private final Map<String, MemberModel> membersByStudentId = new HashMap<>();
 
     public MemberServiceImpl(ExcelImportService excelImportService, ApplicationProperties properties) {
         this.excelImportService = excelImportService;
@@ -26,8 +23,8 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public void loadMembers() throws IOException {
         final List<MemberModel> memberModels = excelImportService.importFromExcel(
-                        ReadfileUtil.readFrom(properties.getMain().getFileName()),
-                        properties.getMain().getSheetIndex());
+                ReadfileUtil.readFrom(properties.getMain().getFileName()),
+                properties.getMain().getSheetIndex());
 
         memberModels.forEach(memberModel -> {
             if (PuzhongGeneralHelper.validStudentId(memberModel.getStudentId())) {
@@ -41,5 +38,10 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public Optional<MemberModel> getMemberByStudentId(String studentId) {
         return Optional.ofNullable(membersByStudentId.get(studentId));
+    }
+
+    @Override
+    public List<MemberModel> allMembers() {
+        return new ArrayList<>(membersByStudentId.values());
     }
 }
